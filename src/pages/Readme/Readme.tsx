@@ -49,6 +49,11 @@ const Readme = () => {
                                 Дополнительная страница Readme для демонстрации роутинга помимо авторизации
                             </Typography>
                         </ListItem>
+                        <ListItem>
+                            <Typography>
+                                ## Версия Node.js - v17.6.0
+                            </Typography>
+                        </ListItem>
                     </List>
                 </Box>
             </Paper>
