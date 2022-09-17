@@ -1,12 +1,23 @@
-# Getting Started with Create React App
+## Что было использовано в проекте:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+1. Redux Toolkit - в качестве state-менеджера
+2. Material UI - в качестве основной стилизации
+3. Tailwind CSS - в качестве базовых стилей ( использовал tailwind в проектах)
+4. Json-server - для авторизации
+5. React hook form на странице Login - использовал в проектах, умею работать
+6. На других инпутах использовал просто управляемые инпуты через useState
+7. Изменение темы с использование Контекста
+8. Дополнительная страница Readme для демонстрации роутинга кроме авторизации
 
-## Available Scripts
+## Доступные скрипты
 
-In the project directory, you can run:
+В проекте вы можете запустить сервер и клиент:
 
-### `npm start`
+### `npm run server` - запуск сервера
+
+Запускается на http://localhost:3001
+
+### `npm start` - запуск клиента в Dev моде
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
