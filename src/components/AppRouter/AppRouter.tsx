@@ -1,6 +1,6 @@
 import { Paper } from "@mui/material";
 import { Route, Routes } from "react-router-dom"
-import About from "../../pages/About/About";
+import Readme from "../../pages/Readme/Readme";
 import Contacts from "../../pages/Contacts/Contacts";
 import Login from "../../pages/Login/Login";
 import Register from "../../pages/Register/Register";
@@ -10,7 +10,7 @@ import PublicRoute from "../PublicRoute/PublicRoute";
 const AppRouter = () => {
 
     return (
-        <Paper sx={{minHeight: '100vh'}}>
+        <Paper sx={{minHeight: '120vh', pb: 5}}>
             <Routes>
                 <Route path={'/'} element={<PublicRoute/>} >
                     <Route path='' element={<Login/>} />
@@ -19,7 +19,7 @@ const AppRouter = () => {
 
                 <Route path="/" element={<ProtectedLayout />}>
                     <Route path="contacts" element={<Contacts />} />
-                    <Route path="about" element={<About />} />
+                    <Route path="readme" element={<Readme />} />
                 </Route>
             </Routes>
         </Paper>

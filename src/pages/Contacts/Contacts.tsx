@@ -86,9 +86,16 @@ const Contacts = () => {
                                         />
                                     </Grid>
                                 )
-                        }) : <Typography sx={{my: 2}} variant="h5" component="h5">Add contact</Typography>
+                        }) : null
                     }
                 </Grid>
+                {
+                    !value.length ? 
+                        <Paper elevation={3} sx={{p: 1, my: 2}}>
+                            <Typography sx={{my: 2, textAlign: 'center'}} variant="h5" component="h5">Add contact</Typography>
+                        </Paper>
+                    : null
+                }
                 
             </Container>
         </>

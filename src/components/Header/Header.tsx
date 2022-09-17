@@ -25,7 +25,7 @@ const Header = () => {
                 <Toolbar>
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                         <StyledNavLink to='/contacts' text='Contacts' />
-                        <StyledNavLink to='/about' text='About' />
+                        <StyledNavLink to='/readme' text='Readme' />
                     </Typography>
                     <IconButton onClick={onThemeChange}>
                         {

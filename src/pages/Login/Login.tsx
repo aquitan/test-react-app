@@ -5,6 +5,7 @@ import Form from "../../components/Form/Form"
 import ButtonCustom from "../../components/UI/ButtonCustom/ButtonCustom"
 import Input from "../../components/UI/Input/Input"
 import { useAuth } from "../../hooks/useAuthContext"
+import { LoginType } from "../../models/models"
 
 const Login = () => {
     const value = useAuth()
@@ -20,7 +21,7 @@ const Login = () => {
     //     setInputValue({...inputValue, [e.target.name]: e.target.value})
     // }
 
-    const onSubmit = (data:{email:string, password:string}) => {
+    const onSubmit = (data:LoginType) => {
         console.log('login data', data)
         value.login(data)
     }
