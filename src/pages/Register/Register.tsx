@@ -1,12 +1,13 @@
 import { Box, Container, Paper, Typography } from "@mui/material";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Form from "../../components/Form/Form";
 import ButtonCustom from "../../components/UI/ButtonCustom/ButtonCustom";
 import Input from "../../components/UI/Input/Input";
 
 const Register = () => {
     const [inputValue, setInputValue] = useState({email: '', password: ''})
+    const navigate = useNavigate()
 
     const onChange = (e:React.ChangeEvent<HTMLInputElement>) => {
         setInputValue({...inputValue, [e.target.name]: e.target.value})
@@ -17,18 +18,19 @@ const Register = () => {
         const obj = {
             email: inputValue.email,
             password: inputValue.password,
-            id: 3
+            id: new Date()
         }
         const res = await fetch('http://localhost:3001/users', {
             method: 'POST',
-            mode: 'no-cors',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(obj)
         })
-        const data = await res.json()
+        if (res.status === 201) {
+            navigate('/')
+        }
     }
 
 

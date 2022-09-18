@@ -5,7 +5,6 @@ import { RootState } from "../../store";
 import { useDispatch, useSelector } from "react-redux";
 import { addContact, cancelEdit, editContact, removeContact, saveEdited } from "../../store/slices/contactsSlice";
 import ContactsItem from "../../components/ContactsItem/ContactsItem";
-import Header from "../../components/Header/Header";
 import AddContact from "../../components/AddContact/AddContact";
 import { useModal } from "../../hooks/useModal";
 import CustomModal from "../../components/CustomModal/CustomModal";
@@ -30,8 +29,12 @@ const Contacts = () => {
             setContactVal({name: '', phone: ''})
         } else {
             setError(true)
-            toggleModal()
+            toggleModal(true)
         }
+    }
+
+    const closeModal = () => {
+        toggleModal(false)
     }
 
     const handleRemoveClick = (id:number) => {
@@ -62,7 +65,7 @@ const Contacts = () => {
     
     return (
         <>
-            <CustomModal open={open} title='Empty fields' text='You have to pass values to the fields' handleClose={toggleModal} />
+            <CustomModal open={open} title='Empty fields' text='You have to pass values to the fields' handleClose={closeModal} />
             <Container maxWidth='lg'>
                 <Typography sx={{my: 2}} variant='h3' component='h3'>Contacts</Typography>
                 <AddContact error={error} name={contactVal.name} phone={contactVal.phone} onSetContactValue={onSetContactValue} handleAddContact={handleAddContact} />
