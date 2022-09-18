@@ -1,7 +1,7 @@
 import { useContext, useMemo, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { AuthContext } from "../context/AuthContext"
-import { AuthContextData, FetchingUser, LoginType } from "../models/models"
+import { AuthContextData, FetchingUser, LoginType } from "../types/types"
 import { useLocalStorage } from "./useLocalStorage"
 
 

@@ -1,5 +1,5 @@
 import { Box, Paper } from '@mui/material';
-import { ContactItem } from '../../models/models';
+import { ContactItem } from '../../types/types';
 import ContactsEdit from '../ContactsEdit/ContactsEdit';
 import ContactsInfo from '../ContactsInfo/ContactsInfo';
 

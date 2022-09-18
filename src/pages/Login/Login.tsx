@@ -1,3 +1,4 @@
+import { ErrorMessage } from "@hookform/error-message"
 import { Box, Container, Paper, Typography } from "@mui/material"
 import { Controller, useForm } from "react-hook-form"
 import { NavLink } from "react-router-dom"
@@ -5,21 +6,17 @@ import Form from "../../components/Form/Form"
 import ButtonCustom from "../../components/UI/ButtonCustom/ButtonCustom"
 import Input from "../../components/UI/Input/Input"
 import { useAuth } from "../../hooks/useAuthContext"
-import { LoginType } from "../../models/models"
+import { LoginType } from "../../types/types"
+import { emailValidate } from "../../utils/utils"
 
 const Login = () => {
     const value = useAuth()
-    // const [inputValue, setInputValue] = useState({email: '', password: ''})
-    const {control, handleSubmit} = useForm({
+    const {control, handleSubmit, formState: {errors}} = useForm({
         defaultValues: {
             email: '',
             password: ''
         }
     })
-
-    // const onChange = (e:React.ChangeEvent<HTMLInputElement>) => {
-    //     setInputValue({...inputValue, [e.target.name]: e.target.value})
-    // }
 
     const onSubmit = (data:LoginType) => {
         console.log('login data', data)
@@ -37,22 +34,42 @@ const Login = () => {
                         <Controller 
                             control={control}
                             name='email'
+                            rules={{
+                                required: true,
+                                validate: (email) => emailValidate(email)
+                            }}
                             render={({
                                 field: {onChange, value}
                             }) => (
-                                <Input name='email' label="Email" value={value} type='text' onChange={onChange}/>
+                                <>
+                                    <Input name='email' label="Email" value={value} type='text' onChange={onChange}/>
+                                    <ErrorMessage 
+                                    name={"email"} 
+                                    errors={errors} 
+                                    render={() => <Typography sx={{color: 'tomato', fontSize: 10}}>Check the field</Typography>} 
+                                    />
+                                </>
                             )}
                         />
-                        
                     </Box>
                     <Box sx={{mt: 2}}>
                         <Controller 
                             control={control}
                             name='password'
+                            rules={{
+                                required: true,
+                            }}
                             render={({
                                 field: {onChange, value}
                             }) => (
-                                <Input name='password' label="Password" value={value} type='password' onChange={onChange}/>
+                                <>
+                                    <Input name='password' label="Password" value={value} type='password' onChange={onChange}/>
+                                    <ErrorMessage 
+                                    name={"password"} 
+                                    errors={errors} 
+                                    render={() => <Typography sx={{color: 'tomato', fontSize: 10}}>Check the field</Typography>} 
+                                    />
+                                </>
                             )}
                         />
                     </Box>

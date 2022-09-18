@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Container, Grid, Paper, Typography } from "@mui/material";
-import { Contact } from "../../models/models";
+import { Contact } from "../../types/types";
 import { RootState } from "../../store";
 import { useDispatch, useSelector } from "react-redux";
 import { addContact, cancelEdit, editContact, removeContact, saveEdited } from "../../store/slices/contactsSlice";

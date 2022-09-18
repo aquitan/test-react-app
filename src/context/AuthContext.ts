@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import { AuthContextData } from "../models/models";
+import { AuthContextData } from "../types/types";
 
 
 export const AuthContext = createContext<AuthContextData>({

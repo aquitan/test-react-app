@@ -1,6 +1,6 @@
-import type { Contact, EditedValue, NewContact } from './../../models/models';
+import type { Contact, EditedValue, NewContact } from '../../types/types';
 import type { PayloadAction } from "@reduxjs/toolkit";
-import type { ContactsInterface } from "../../models/models";
+import type { ContactsInterface } from "../../types/types";
 import { createSlice, Draft } from "@reduxjs/toolkit";
 
 const initialState:ContactsInterface = {
