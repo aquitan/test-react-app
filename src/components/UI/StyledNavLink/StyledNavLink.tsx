@@ -29,6 +29,7 @@ const StyledNavLink = ({to, text}:StyledNavLinkTypes) => {
         color: #fff;
         padding: 0 10px;
         transition: all .2s linear;
+        text-decoration: none;
     `
 
     return (

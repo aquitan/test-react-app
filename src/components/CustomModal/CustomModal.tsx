@@ -1,5 +1,5 @@
 import { Box, Modal, Paper, Typography } from "@mui/material";
-import ButtonCustom from "../UI/ButtonCustom/ButtonCustom";
+import ButtonCustom from "../ui/buttonCustom/ButtonCustom";
 
 type CustomModalType = {
     open: boolean,
@@ -29,10 +29,10 @@ const CustomModal = ({open, handleClose, title, text}:CustomModalType) => {
             aria-describedby="modal-modal-description"
             >
             <Paper elevation={1} sx={style}>
-                <Typography sx={{textAlign: 'center', marginBottom: 4}} id="modal-modal-title" variant="h6" component="h2">
+                <Typography align="center" sx={{marginBottom: 4}} id="modal-modal-title" variant="h6" component="h2">
                 {title}
                 </Typography>
-                <Typography sx={{textAlight: 'center'}} id="modal-modal-description">
+                <Typography align="center" id="modal-modal-description">
                 {text}
                 </Typography>
                 <Box sx={{mt: 4, textAlign: 'right'}}>

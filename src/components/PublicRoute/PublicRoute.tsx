@@ -1,6 +1,6 @@
 import { Navigate, Outlet } from "react-router-dom"
 import { useAuth } from "../../hooks/useAuthContext"
-import Login from "../../pages/Login/Login"
+import Login from "../../pages/login/Login"
 
 const PublicRoute = () => {
     const { user } = useAuth()

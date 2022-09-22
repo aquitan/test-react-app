@@ -21,22 +21,12 @@ const Readme = () => {
                         </ListItem>
                         <ListItem>
                             <Typography>
-                                Tailwind CSS - в качестве базовых стилей ( использовал tailwind в проектах)
-                            </Typography>
-                        </ListItem>
-                        <ListItem>
-                            <Typography>
                                 Json-server - для авторизации
                             </Typography>
                         </ListItem>
                         <ListItem>
                             <Typography>
-                                React hook form на странице Login - использовал в проектах, умею работать
-                            </Typography>
-                        </ListItem>
-                        <ListItem>
-                            <Typography>
-                                На других инпутах использовал просто управляемые инпуты через useState
+                                React-hook-form
                             </Typography>
                         </ListItem>
                         <ListItem>

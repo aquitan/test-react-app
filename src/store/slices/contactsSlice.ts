@@ -26,7 +26,7 @@ export const contactsSlice = createSlice({
         },
         editContact: (state, action: PayloadAction<number>) => {            
             const arr = state.contacts;
-            arr.map(el => el.isEdit = false)
+            arr.forEach(el => el.isEdit = false)
             let current: Draft<Contact | undefined> = arr.find((el:Contact) => el.id === action.payload)
             if (current) {
                 current.isEdit = !current.isEdit

@@ -12,8 +12,9 @@ type InputTypes = {
 }
 
 const Input = ({required, error, type, label, value, name, onChange }:InputTypes) => {
+    
     return (
-        <TextField error={error && !value} required={required} autoComplete="off" className="w-full" name={name} value={value} type={type} id={label} label={label} onChange={onChange} variant="standard" />
+        <TextField sx={{width: '100%', boxSizing: 'border-box'}} error={error && !value} required={required} autoComplete="off" className="w-full" name={name} value={value} type={type} id={label} label={label} onChange={onChange} variant="standard" />
     )
 }
 export default Input;

@@ -1,11 +1,11 @@
 import { AppBar, Box, IconButton, Toolbar, Typography } from "@mui/material";
 import { useThemeContext } from "../../hooks/useThemeContext";
-import SearchBar from "../SearchBar/SearchBar";
+import SearchBar from "../searchBar/SearchBar";
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
-import ButtonCustom from "../UI/ButtonCustom/ButtonCustom";
+import ButtonCustom from "../ui/buttonCustom/ButtonCustom";
 import { useAuth } from "../../hooks/useAuthContext";
-import StyledNavLink from "../UI/StyledNavLink/StyledNavLink";
+import StyledNavLink from "../ui/styledNavLink/StyledNavLink";
 
 const Header = () => {
     const {themeMode, changeMode} = useThemeContext()

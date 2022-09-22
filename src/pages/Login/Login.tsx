@@ -2,12 +2,13 @@ import { ErrorMessage } from "@hookform/error-message"
 import { Box, Container, Paper, Typography } from "@mui/material"
 import { Controller, useForm } from "react-hook-form"
 import { NavLink } from "react-router-dom"
-import Form from "../../components/Form/Form"
-import ButtonCustom from "../../components/UI/ButtonCustom/ButtonCustom"
-import Input from "../../components/UI/Input/Input"
+import Form from "../../components/form/Form"
+import ButtonCustom from "../../components/ui/buttonCustom/ButtonCustom"
+import Input from "../../components/ui/input/Input"
 import { useAuth } from "../../hooks/useAuthContext"
 import { LoginType } from "../../types/types"
 import { emailValidate } from "../../utils/utils"
+
 
 const Login = () => {
     const value = useAuth()
@@ -66,7 +67,7 @@ const Login = () => {
                                     <Input name='password' label="Password" value={value} type='password' onChange={onChange}/>
                                     <ErrorMessage 
                                     name={"password"} 
-                                    errors={errors} 
+                                    errors={errors}
                                     render={() => <Typography sx={{color: 'tomato', fontSize: 10}}>Check the field</Typography>} 
                                     />
                                 </>

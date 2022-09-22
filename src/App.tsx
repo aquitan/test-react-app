@@ -1,6 +1,6 @@
 import { ThemeProvider } from "@emotion/react";
 import { createTheme } from "@mui/material";
-import AppRouter from "./components/AppRouter/AppRouter";
+import AppRouter from "./components/appRouter/AppRouter";
 import { useThemeContext } from "./hooks/useThemeContext";
 
 function App() {

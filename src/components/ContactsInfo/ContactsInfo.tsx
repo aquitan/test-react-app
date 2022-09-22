@@ -1,5 +1,5 @@
 import { Box, Typography } from "@mui/material";
-import ButtonCustom from "../UI/ButtonCustom/ButtonCustom";
+import ButtonCustom from "../ui/buttonCustom/ButtonCustom";
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 

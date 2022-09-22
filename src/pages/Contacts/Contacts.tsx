@@ -4,10 +4,10 @@ import { Contact } from "../../types/types";
 import { RootState } from "../../store";
 import { useDispatch, useSelector } from "react-redux";
 import { addContact, cancelEdit, editContact, removeContact, saveEdited } from "../../store/slices/contactsSlice";
-import ContactsItem from "../../components/ContactsItem/ContactsItem";
-import AddContact from "../../components/AddContact/AddContact";
+import ContactsItem from "../../components/contactsItem/ContactsItem";
+import AddContact from "../../components/addContact/AddContact";
 import { useModal } from "../../hooks/useModal";
-import CustomModal from "../../components/CustomModal/CustomModal";
+import CustomModal from "../../components/customModal/CustomModal";
 
 const Contacts = () => {
     const [contactVal, setContactVal] = useState({name: '', phone: ''})
@@ -67,14 +67,14 @@ const Contacts = () => {
         <>
             <CustomModal open={open} title='Empty fields' text='You have to pass values to the fields' handleClose={closeModal} />
             <Container maxWidth='lg'>
-                <Typography sx={{my: 2}} variant='h3' component='h3'>Contacts</Typography>
+                <Typography sx={{my: 8}} variant='h3' component='h3'>Contacts</Typography>
                 <AddContact error={error} name={contactVal.name} phone={contactVal.phone} onSetContactValue={onSetContactValue} handleAddContact={handleAddContact} />
                 <Grid container spacing={2}>
                     { 
                         value.length ? 
                             filtered.map((contact:Contact) => {
                                 return (
-                                    <Grid key={contact.id} item xs={6}>
+                                    <Grid key={contact.id} gap={2} item xs={6}>
                                         <ContactsItem 
                                         name={contact.name} 
                                         phone={contact.phone}
@@ -94,8 +94,8 @@ const Contacts = () => {
                 </Grid>
                 {
                     !value.length ? 
-                        <Paper elevation={3} sx={{p: 1, my: 2}}>
-                            <Typography sx={{my: 2, textAlign: 'center'}} variant="h5" component="h5">Add contact</Typography>
+                        <Paper elevation={3} sx={{p: 1, my: 8}}>
+                            <Typography align="center" sx={{my: 8}} variant="h5" component="h5">Add contact</Typography>
                         </Paper>
                     : null
                 }

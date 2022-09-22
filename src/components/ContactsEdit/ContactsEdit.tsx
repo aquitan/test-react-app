@@ -1,6 +1,6 @@
 import { Box } from "@mui/material"
-import ButtonCustom from "../UI/ButtonCustom/ButtonCustom"
-import Input from "../UI/Input/Input"
+import ButtonCustom from "../ui/buttonCustom/ButtonCustom"
+import Input from "../ui/input/Input"
 import CancelIcon from '@mui/icons-material/Cancel';
 import SaveIcon from '@mui/icons-material/Save';
 import React from "react";

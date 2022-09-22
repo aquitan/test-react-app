@@ -1,7 +1,7 @@
 import { Box, Paper } from "@mui/material";
-import ButtonCustom from "../UI/ButtonCustom/ButtonCustom";
+import ButtonCustom from "../ui/buttonCustom/ButtonCustom";
 import AddIcon from '@mui/icons-material/Add'
-import Input from "../UI/Input/Input";
+import Input from "../ui/input/Input";
 import React from "react";
 
 type AddContactType = {
@@ -13,6 +13,9 @@ type AddContactType = {
 }
 
 const AddContact = ({name, error, phone, onSetContactValue, handleAddContact}:AddContactType) => {
+    
+
+
     return (
         <Paper sx={{padding: 2, marginY: 2}} elevation={3}>
             <Box sx={{marginBottom: 2, width: '100%'}}>
