@@ -64,3 +64,8 @@ export type LoginType = {
     email: string,
     password: string
 }
+
+export type AddContactDataType = {
+    name: string,
+    phone: string
+}

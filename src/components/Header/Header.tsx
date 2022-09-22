@@ -6,9 +6,12 @@ import Brightness7Icon from '@mui/icons-material/Brightness7';
 import ButtonCustom from "../ui/buttonCustom/ButtonCustom";
 import { useAuth } from "../../hooks/useAuthContext";
 import StyledNavLink from "../ui/styledNavLink/StyledNavLink";
+import { useModal } from "../../hooks/useModal";
+import CustomModal from "../customModal/CustomModal";
 
 const Header = () => {
     const {themeMode, changeMode} = useThemeContext()
+    const {open, toggleModal} = useModal()
     const {logout} = useAuth()
 
     const onThemeChange = () => {
@@ -20,12 +23,15 @@ const Header = () => {
     }
 
     return (
+        <>
+        <CustomModal open={open} title='Modal example' text='This is example of modal' handleClose={() => toggleModal(false)} />
         <Box>
             <AppBar position='static'>
                 <Toolbar>
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                         <StyledNavLink to='/contacts' text='Contacts' />
                         <StyledNavLink to='/readme' text='Readme' />
+                        <ButtonCustom onClick={() => toggleModal(true)} color='info' type='button' variant='contained' text='Try modal?' />
                     </Typography>
                     <IconButton onClick={onThemeChange}>
                         {
@@ -42,6 +48,8 @@ const Header = () => {
                 
             </AppBar>
         </Box>
+        </>
+        
     )
 }
 export default Header;

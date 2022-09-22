@@ -20,7 +20,6 @@ const Login = () => {
     })
 
     const onSubmit = (data:LoginType) => {
-        console.log('login data', data)
         value.login(data)
     }
 

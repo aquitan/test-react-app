@@ -24,7 +24,6 @@ export const AuthContextProvider = ({children}:AuthContextProviderTypes) => {
             if (datas.length) {
                 let usrs = datas.filter((item:FetchingUser) => item.email === data.email)
                 if (usrs.length) {
-                    console.log('users', usrs);
                     setUser(data)
                     navigate('/contacts')
                 } else {

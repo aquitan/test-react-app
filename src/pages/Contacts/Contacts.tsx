@@ -1,40 +1,20 @@
 import React, { useState } from "react";
 import { Container, Grid, Paper, Typography } from "@mui/material";
-import { Contact } from "../../types/types";
+import { AddContactDataType, Contact } from "../../types/types";
 import { RootState } from "../../store";
 import { useDispatch, useSelector } from "react-redux";
 import { addContact, cancelEdit, editContact, removeContact, saveEdited } from "../../store/slices/contactsSlice";
 import ContactsItem from "../../components/contactsItem/ContactsItem";
 import AddContact from "../../components/addContact/AddContact";
-import { useModal } from "../../hooks/useModal";
-import CustomModal from "../../components/customModal/CustomModal";
 
 const Contacts = () => {
-    const [contactVal, setContactVal] = useState({name: '', phone: ''})
     const [editedValue, setEditedValue] = useState({name: '', phone: ''})
-    const [error, setError] = useState(false)
-    const {open, toggleModal} = useModal()
     const value = useSelector((state:RootState) => state.contacts)
     const searchValue = useSelector((state:RootState) => state.filteredContacts)
     const dispatch = useDispatch()
 
-    const onSetContactValue = (e:React.ChangeEvent<HTMLInputElement>) => {
-        setError(false)
-        setContactVal({...contactVal, [e.target.name]: e.target.value})
-    }
-
-    const handleAddContact = () => {
-        if (contactVal.name && contactVal.phone) {
-            dispatch(addContact(contactVal))
-            setContactVal({name: '', phone: ''})
-        } else {
-            setError(true)
-            toggleModal(true)
-        }
-    }
-
-    const closeModal = () => {
-        toggleModal(false)
+    const handleAddContact = (data:AddContactDataType) => {
+        dispatch(addContact(data))
     }
 
     const handleRemoveClick = (id:number) => {
@@ -65,10 +45,9 @@ const Contacts = () => {
     
     return (
         <>
-            <CustomModal open={open} title='Empty fields' text='You have to pass values to the fields' handleClose={closeModal} />
             <Container maxWidth='lg'>
                 <Typography sx={{my: 8}} variant='h3' component='h3'>Contacts</Typography>
-                <AddContact error={error} name={contactVal.name} phone={contactVal.phone} onSetContactValue={onSetContactValue} handleAddContact={handleAddContact} />
+                <AddContact handleAddContact={handleAddContact} />
                 <Grid container spacing={2}>
                     { 
                         value.length ? 
