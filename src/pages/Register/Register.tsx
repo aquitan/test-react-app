@@ -1,6 +1,5 @@
 import { ErrorMessage } from "@hookform/error-message";
-import { Box, Container, Paper, Typography } from "@mui/material";
-import { useState } from "react";
+import { Box, Container, IconButton, Paper, Typography } from "@mui/material";
 import { Controller, useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import Form from "../../components/form/Form";
@@ -8,8 +7,12 @@ import ButtonCustom from "../../components/ui/buttonCustom/ButtonCustom";
 import Input from "../../components/ui/input/Input";
 import { LoginType } from "../../types/types";
 import { emailValidate } from "../../utils/utils";
+import Brightness4Icon from '@mui/icons-material/Brightness4';
+import Brightness7Icon from '@mui/icons-material/Brightness7';
+import { useThemeContext } from "../../hooks/useThemeContext";
 
 const Register = () => {
+    const {themeMode, changeMode} = useThemeContext()
     const {control, handleSubmit, formState: {errors}} = useForm({
         defaultValues: {
             email: '',
@@ -32,10 +35,21 @@ const Register = () => {
         }
     }
 
+    const onThemeChange = () => {
+        changeMode()
+    }
+
 
     return (
-        <Container maxWidth='sm'>
-            <Paper elevation={3} sx={{p: 2, mt: 4}}>
+        <Container sx={{pt: 5}} maxWidth='sm'>
+            <Box>
+                <IconButton onClick={onThemeChange}>
+                    {
+                        themeMode === 'light' ? <Brightness4Icon color='inherit' /> : <Brightness7Icon color='warning' />
+                    }
+                </IconButton>
+            </Box>
+            <Paper elevation={3} sx={{p: 2}}>
                 <Form onSubmit={handleSubmit(onSubmit)}>
                     <Typography component='h4' variant="h5" >
                         Register

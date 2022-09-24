@@ -12,7 +12,7 @@ type AddContactType = {
 }
 
 const AddContact = ({handleAddContact}:AddContactType) => {
-    const {control, handleSubmit, formState: {errors}} = useForm({
+    const {control, handleSubmit, formState: {errors}, reset} = useForm({
         defaultValues: {
             name: '',
             phone: ''
@@ -21,6 +21,7 @@ const AddContact = ({handleAddContact}:AddContactType) => {
 
     const submit = (data:AddContactDataType) => {
         handleAddContact(data)
+        reset({name: '', phone: ''})
     }
 
     return (
