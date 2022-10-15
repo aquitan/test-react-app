@@ -19,7 +19,7 @@ export const AuthContextProvider = ({children}:AuthContextProviderTypes) => {
 
     const getUsers = async (data:LoginType) => {
         try {
-            const res = await fetch('http://localhost:3001/users')
+            const res = await fetch('http://localhost:3000/users')
             const datas = await res.json()
             if (datas.length) {
                 let usrs = datas.filter((item:FetchingUser) => item.email === data.email)
